@@ -11,7 +11,7 @@ body{
     overflow: hidden;
     .limit-container{
         position: relative;
-        width: 1040px;
+        width: 1240px;
         z-index: 100;
         margin: 0 auto;
         font-family: $font;
@@ -21,26 +21,42 @@ body{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
             
             img{
-                width: 53px;
-                height: 50px;
+                width: 73px;
+                height: 70px;
             }
             .menu{
-                width: 60%;
+                width: 40%;
                 list-style-type: none;
+                color: white;
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
                 li{
                     width: 147px;
                     height: 46px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    a{
+                        text-decoration: none;
+                        border-radius: 20px;
+                        padding: 10px;
+                        text-align: center;
+                        color: black;
+                        background: white;
+                        display: inline-block;
+                        width: 200px;
+
+                    }
                 }
             }
         }
         .content{
             width: 580px;
-            border:1px solid black;
             height: 430px;
             left: 0px;
             margin-top: 25%;
@@ -82,6 +98,12 @@ body{
         width: 1000px;
         height: 1373.99px;
         transform: rotate(9.67deg);
-        background:red;
+        background:black;
+        img{
+            position: absolute;
+            left: 5%;
+            bottom: 15%;
+            transform: rotate(-9.67deg);
+        }
     }
 }

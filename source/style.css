@@ -14,7 +14,7 @@ body {
 
 .wrapper .limit-container {
   position: relative;
-  width: 1040px;
+  width: 1240px;
   z-index: 100;
   margin: 0 auto;
   font-family: "Montserrat Alternates", sans-serif;
@@ -32,16 +32,20 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .wrapper .limit-container .navigation-bar img {
-  width: 53px;
-  height: 50px;
+  width: 73px;
+  height: 70px;
 }
 
 .wrapper .limit-container .navigation-bar .menu {
-  width: 60%;
+  width: 40%;
   list-style-type: none;
+  color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -57,11 +61,31 @@ body {
 .wrapper .limit-container .navigation-bar .menu li {
   width: 147px;
   height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.wrapper .limit-container .navigation-bar .menu li a {
+  text-decoration: none;
+  border-radius: 20px;
+  padding: 10px;
+  text-align: center;
+  color: black;
+  background: white;
+  display: inline-block;
+  width: 200px;
 }
 
 .wrapper .limit-container .content {
   width: 580px;
-  border: 1px solid black;
   height: 430px;
   left: 0px;
   margin-top: 25%;
@@ -109,6 +133,14 @@ body {
   height: 1373.99px;
   -webkit-transform: rotate(9.67deg);
           transform: rotate(9.67deg);
-  background: red;
+  background: black;
+}
+
+.wrapper .rotate-container img {
+  position: absolute;
+  left: 5%;
+  bottom: 15%;
+  -webkit-transform: rotate(-9.67deg);
+          transform: rotate(-9.67deg);
 }
 /*# sourceMappingURL=style.css.map */
