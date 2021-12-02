@@ -1,5 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600;700;800&display=swap');
+$redColor: rgba(244,67,54,1);
+$blueColor:rgba(33,150,243,1);
 $font: 'Montserrat Alternates', sans-serif;
+@mixin magic-border($width, $color, $duration, $direction){
+    position:relative;
+      &:before{
+        content:'';
+        position:absolute;
+        width:calc(100% + #{$width * 2});
+        height:calc(100% + #{$width * 2});
+        top:calc(#{$width}/-1);
+        left:calc(#{$width}/-1);
+        background:linear-gradient(to right, $color 0%, $color 100%), linear-gradient(to top, $color 50%, transparent 50%), linear-gradient(to top, $color 50%, transparent 50%), linear-gradient(to right, $color 0%, $color 100%), linear-gradient(to left, $color 0%, $color 100%);
+        background-size:100% $width, $width 200%, $width 200%, 0% $width, 0% $width;
+        background-position:50% 100%, 0% 0%, 100% 0%, 100% 0%, 0% 0%;
+        background-repeat:no-repeat, no-repeat;
+        transition:transform $duration ease-in-out, background-position $duration ease-in-out, background-size $duration ease-in-out;
+        transform:scaleX(0) rotate(180deg * $direction);
+        transition-delay:$duration*2, $duration, 0s;
+        }
+        &:hover{
+            &:before{
+              background-size:200% $width, $width 400%, $width 400%, 55% $width, 55% $width;
+              background-position:50% 100%, 0% 100%, 100% 100%, 100% 0%, 0% 0%;
+              transform:scaleX(1) rotate(180deg * $direction);
+              transition-delay:0s, $duration, $duration*2;
+            }
+          }
+      }
 html{
     scroll-behavior: smooth;
 }
@@ -31,7 +59,16 @@ body{
                     width: 40px;
                     height: 40px;
                     color: white;
+                    animation: rotation 2s infinite linear;
                 }
+                @keyframes rotation {
+                    from {
+                      transform: rotate(0deg);
+                    }
+                    to {
+                      transform: rotate(359deg);
+                    }
+                  }
             }
             button{
                 cursor: pointer;
@@ -209,7 +246,6 @@ body{
         .about-me-title{
             width: 404px;
             height: 107px;
-            border: 6px solid black;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -217,7 +253,7 @@ body{
             font-size: 30px;
             line-height: 38px;
             letter-spacing: 0.35538em;
-
+            @include magic-border(4px, #222, 0.2s, 1);
         }
         .about-me-text{
             margin-top: 71px;
@@ -336,15 +372,19 @@ body{
                 cursor: pointer;
                 padding: 15px 25px;
                 color: black;
+                z-index: 11;
                 font-size: 15px;
                 line-height: 18px;
                 font-style: Semibold;
+                position: relative;
                 background: transparent;
                 outline: none;
-                border-left: 2px solid black;
-                border-right: 2px solid black;
                 border-top: none;
                 border-bottom: none;
+                overflow: hidden;
+                opacity: 1;
+                transition: 0.5s;
+
             }
         }
     }
@@ -366,6 +406,7 @@ body{
             font-size: 30px;
             line-height: 38px;
             letter-spacing: 0.35538em;
+            
         }
         .using-now-block{
             padding: 30px 0;
